@@ -4,7 +4,7 @@
 ### Tareas
 | Actividad | Responsable | Estado (-, en proceso, terminada) |
 | --------- | ----------- | --------------------------------- |
-| Confeccionar mockup de página principal | ? | - |
+| Confeccionar mockup del dashboard | Nicolas Cordova | en proceso |
 | Seleccionar componentes chakra para página principal | ? | - |
 |  | ? | - |
 |  | ? | - |
