@@ -1,17 +1,25 @@
-// Agregando un título y descripción a la página
-// Referencia: https://nextjs.org/docs/app/building-your-application/optimizing/metadata
-export const metadata = {
-  title: "Home",
-  description: "Esta es la página de inicio",
-};
+import PendingReturns from './components/PendingReturns'
+import Statistics from './components/Statistics'
+import MostRequestedBooks from './components/MostRequestedBooks'
+import TopReaders from './components/TopReaders'
+import TopDonors from './components/TopDonors'
 
-export default function Home() {
+export default function Dashboard() {
   return (
-    <>
-      <div className="container">
-        <h1 className="title">Hola mundo!</h1>
-        
+    <div className="dashboard grid grid-cols-4 gap-4">
+      <div className="col-span-3">
+        <PendingReturns />
       </div>
-    </>
-  );
+      <div className="col-span-1">
+        <Statistics />
+      </div>
+      <div className="col-span-3">
+        <MostRequestedBooks />
+      </div>
+      <div className="col-span-1 space-y-4">
+        <TopReaders />
+        <TopDonors />
+      </div>
+    </div>
+  )
 }
