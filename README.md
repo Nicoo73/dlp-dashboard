@@ -4,9 +4,6 @@
 ### Tareas
 | Actividad | Responsable | Estado (-, en proceso, terminada) |
 | --------- | ----------- | --------------------------------- |
-| Confeccionar mockup del dashboard | Nicolas Cordova | en proceso |
-| Seleccionar componentes chakra para página principal | ? | - |
-| Definir lo que pediremos a la API | ? | en proceso |
-|  | ? | - |
-|  | ? | - |
-|  | ? | - |
+| Confeccionar mockup del dashboard | Nicolas Cordova | Finalizado |
+| Seleccionar componentes chakra para página principal | ? | Finalizado |
+| Definir lo que pediremos a la API | ? | En proceso |
