@@ -4,9 +4,20 @@
 ### Tareas
 | Actividad | Responsable | Estado (-, en proceso, terminada) |
 | --------- | ----------- | --------------------------------- |
-|Mostrar todos los libros pendiente de entrega ||Pendiente |
-| Implementar Tailwind | | Pendiente| 
-| Agregar grafico de donaciones y solicitudes|Gonzalo Vergara |Finalizado|
-| Confeccionar mockup del dashboard | Nicolás Cordova | Finalizado |
-| Seleccionar componentes chakra para página principal | Agustín  | Finalizado |
-| Definir lo que pediremos a la API | Gabriel Maldonado | En proceso |
+
+| Crear repositorio en GitHub | Nicolás Molina | Terminada |
+| Crear proyecto usando Next | Nicolás Molina | Terminada |
+| Implementar Tailwind | Nicolás Molina | Terminada | 
+| Confeccionar mockup del dashboard | Nicolás Cordova | Terminada |
+| Seleccionar componentes chakra para página principal | Agustín Estrada | Terminada |
+
+## Sprint 2
+### Tareas
+| Mostrar todos los libros pendiente de entrega |  | En proceso |
+| Agregar gráfico de donaciones y solicitudes | Gonzalo Vergara | Terminada |
+
+## Sprint 3
+### Tareas
+| Definir lo que se pedirá a la API | Gabriel Maldonado | en proceso |
+| Crear diseño reactivo | Agustín Estrada | en proceso |
+| --------- | ----------- | --------------------------------- |
