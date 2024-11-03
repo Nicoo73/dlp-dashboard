@@ -6,7 +6,7 @@
 | --------- | ----------- | --------------------------------- | 
 | Crear repositorio en GitHub | Nicolás Molina | Terminada |
 | Crear proyecto usando Next | Nicolás Molina | Terminada |
-| Implementar Tailwind | Nicolás Molina | Terminada | 
+| Implementar Tailwind | Gabriel Maldonado | Terminada | 
 | Confeccionar mockup del dashboard | Nicolás Cordova | Terminada |
 | Seleccionar componentes chakra para página principal | Agustín Estrada | Terminada |
 
