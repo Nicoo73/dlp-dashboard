@@ -25,6 +25,7 @@
 | Hacer el proyecto lo más parecido al mockup | Nicolás Molina | Terminada |
 | Agregar gráfico de donaciones y solicitudes | Gonzalo Vergara | Terminada |
 | Mostrar libros pendiente de entrega | Gonzalo Vergara | Terminada |
+| Añadir datos de prueba | Nicolás Cordova | Terminada |
 
 ## Sprint 3
 ### Tareas
@@ -33,4 +34,5 @@
 | Crear solución para poder ver todos los libros pendientes de entrega | Gabriel Maldonado | En proceso |
 | Definir lo que se pedirá a la API | Gabriel Maldonado | En proceso |
 | Crear diseño reactivo | Agustín Estrada | En proceso |
-| Cambiar el diseño del proyecto | Nicolás Molina | En proceso |
+| Actualizar diseño del proyecto | Nicolás Molina | En proceso |
+| Mostrar número de atrasados | Gonzalo Vergara | En proceso |
