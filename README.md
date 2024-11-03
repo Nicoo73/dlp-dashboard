@@ -31,8 +31,9 @@
 ### Tareas
 | Actividad | Responsable | Estado (-, en proceso, terminada) |
 | --------- | ----------- | --------------------------------- | 
-| Crear solución para poder ver todos los libros pendientes de entrega | Gabriel Maldonado | En proceso |
+| Crear solución para poder ver todos los libros pendientes de entrega | Angelo Ortiz | En proceso |
 | Definir lo que se pedirá a la API | Gabriel Maldonado | En proceso |
 | Crear diseño reactivo | Agustín Estrada | En proceso |
 | Actualizar diseño del proyecto | Nicolás Molina | En proceso |
 | Mostrar número de atrasados | Gonzalo Vergara | En proceso |
+| Hacer petición de servicios a la API | Gabriel Maldonado| En proceso |
