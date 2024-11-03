@@ -14,12 +14,15 @@
 ### Tareas
 | Actividad | Responsable | Estado (-, en proceso, terminada) |
 | --------- | ----------- | --------------------------------- | 
-| Mostrar todos los libros pendiente de entrega |  | En proceso |
+| Hacer el proyecto lo más parecido al mockup | Nicolás Molina | Terminada |
 | Agregar gráfico de donaciones y solicitudes | Gonzalo Vergara | Terminada |
+| Mostrar libros pendiente de entrega | Gonzalo Vergara | Terminada |
 
 ## Sprint 3
 ### Tareas
 | Actividad | Responsable | Estado (-, en proceso, terminada) |
 | --------- | ----------- | --------------------------------- | 
-| Definir lo que se pedirá a la API | Gabriel Maldonado | en proceso |
-| Crear diseño reactivo | Agustín Estrada | en proceso |
+| Crear solución para poder ver todos los libros pendientes de entrega | Gabriel Maldonado | En proceso |
+| Definir lo que se pedirá a la API | Gabriel Maldonado | En proceso |
+| Crear diseño reactivo | Agustín Estrada | En proceso |
+| Cambiar el diseño del proyecto | Nicolás Molina | En proceso |
