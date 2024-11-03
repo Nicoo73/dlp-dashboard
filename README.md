@@ -1,5 +1,13 @@
 # dlp-dashboard
 
+## Integrantes
++ Nicolás Molina
++ Gabriel Maldonado
++ Agustín Estrada
++ Nicolás Cordova
++ Gonzalo Vergara
++ Angelo Ortiz
+
 ## Sprint 1
 ### Tareas
 | Actividad | Responsable | Estado (-, en proceso, terminada) |
