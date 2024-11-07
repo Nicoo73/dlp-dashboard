@@ -49,7 +49,8 @@ th {
 .book-item {
   display: flex;
   align-items: center;
-  padding: 0.5rem 0;
+  padding: 1rem;
+  padding-right: 5rem;
   border-bottom: 1px solid #e0e0e0;
 }
 
@@ -66,6 +67,7 @@ th {
 
 .book-info {
   flex: 1;
+  padding-left: 2rem;
 }
 
 .top-list {
