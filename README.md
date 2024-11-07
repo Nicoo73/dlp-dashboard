@@ -1,4 +1,4 @@
-# dlp-dashboard
+![Title](https://raw.githubusercontent.com/Nicoo73/dlp-dashboard/refs/heads/main/Dashboard.png)
 
 ## Integrantes
 + Nicolás Molina
@@ -37,3 +37,8 @@
 | Hacer petición de servicios a la API | Gabriel Maldonado| En proceso |
 | Actualizar diseño del proyecto | Nicolás Molina | En proceso |
 | Crear diseño reactivo | Agustín Estrada | En proceso |
+
+##
+## PREVIEW
+![preview-1](https://raw.githubusercontent.com/Nicoo73/dlp-dashboard/refs/heads/main/PREVIEW-1.png)
+![preview-2](https://raw.githubusercontent.com/Nicoo73/dlp-dashboard/refs/heads/main/PREVIEW-2.png)
