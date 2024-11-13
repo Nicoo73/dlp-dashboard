@@ -73,7 +73,7 @@ const misoptions = {
               weight: 'bold', // Peso de fuente
             },
           },
-          onClick: (e, legendItem, legend) => {
+        onClick: (e, legendItem, legend) => {
         const index = legendItem.datasetIndex;
         const chart = legend.chart;
 

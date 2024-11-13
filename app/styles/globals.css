@@ -1,13 +1,14 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-@import url(https://fonts.google.com/specimen/Kanit);
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');
+
 
 body {
   font-family: 'Kanit', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0;
+  background: linear-gradient(180deg, #121219 10%, #6063a4 100%);
 }
 
 .dashboard {
