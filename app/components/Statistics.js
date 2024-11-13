@@ -20,13 +20,14 @@ export default function Statistics() {
     const fetchData = async() => {
       try {
         const response = await axios.get("https://dlp-api.vercel.app/prestamos");
-        res = response.data;
+        const res = response.data;
 
         const borrowedCount = res.prestamos.length;
         setTotalBorrowedBooks(borrowedCount);
         //console.log(response.data);
       } catch (error) {
-        console.error(error);
+        console.log("error detectado");
+        console.log(error);
       }
     }
 
