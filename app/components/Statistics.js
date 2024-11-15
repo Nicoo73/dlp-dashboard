@@ -19,10 +19,8 @@ export default function Statistics() {
   useEffect(() => {
     const fetchData = async() => {
       try {
-<<<<<<< Updated upstream
         const response = await axios.get("https://dlp-api.vercel.app/prestamos");
         const res = response.data;
-=======
         const response2 = await axios.get("https://api.thecatapi.com/v1/images/search",  {
           headers: {
             'Content-Type': 'application/json',
@@ -36,7 +34,6 @@ export default function Statistics() {
           }
         });
         res = response.data;
->>>>>>> Stashed changes
 
         const borrowedCount = res.prestamos.length;
         setTotalBorrowedBooks(borrowedCount);
