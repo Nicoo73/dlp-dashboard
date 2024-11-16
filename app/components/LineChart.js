@@ -26,7 +26,8 @@ ChartJS.register(
 
 let prestamos = [20, 23, 20, 14, 31, 27, 11, 9, 10, 29, 7, 10];
 let reembolsos = [3, 7, 12, 5, 2, 9, 13, 9, 6, 11, 8, 16];
-let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+let meses = [
+  "Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
 
 let midata = {
   labels: meses,
