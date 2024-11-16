@@ -9,7 +9,6 @@ function StatBox({ title, value }) {
   );
 }
 
-<<<<<<< Updated upstream
 export default function Statistics() {
   const [totalBorrowedBooks, setTotalBorrowedBooks] = useState(0);
 
@@ -43,10 +42,8 @@ export default function Statistics() {
   }, []);
 
 
-=======
 export default function Statistics(props) {
   console.log("a", props)
->>>>>>> Stashed changes
   return (
     <>
       <StatBox title="Total de libros" value={"a"} />
