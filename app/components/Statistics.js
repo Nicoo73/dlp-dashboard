@@ -1,5 +1,9 @@
 "use client";
 
+import { compress } from "@/next.config";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+
 function StatBox({ title, value }) {
   return (
     <div className="card">
@@ -9,7 +13,6 @@ function StatBox({ title, value }) {
   );
 }
 
-<<<<<<< Updated upstream
 export default function Statistics() {
   const [totalBorrowedBooks, setTotalBorrowedBooks] = useState(0);
 
@@ -43,16 +46,11 @@ export default function Statistics() {
   }, []);
 
 
-=======
-export default function Statistics(props) {
-  console.log("a", props)
->>>>>>> Stashed changes
   return (
     <>
       <StatBox title="Total de libros" value={"a"} />
-      <StatBox title="Libros prestados" value={props.totalBorrowedBooks} />
+      <StatBox title="Libros prestados" value={totalBorrowedBooks} />
       <StatBox title="Total de donantes" value="X" />
     </>
   );
 }
-
