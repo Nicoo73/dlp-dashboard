@@ -32,9 +32,9 @@
 | Actividad | Responsable | Estado (-, en proceso, terminada) |
 | --------- | ----------- | --------------------------------- | 
 | Definir lo que se pedirá a la API | Nicolás Cordova | Terminada |
+| Hacer petición de servicios a la API | Gabriel Maldonado| Terminada |
 | Crear solución para poder ver TODOS los libros pendientes de entrega | Angelo Ortiz | En proceso |
 | Mostrar número de atrasados | Gonzalo Vergara | En proceso |
-| Hacer petición de servicios a la API | Gabriel Maldonado| Terminada |
 | Actualizar diseño del proyecto | Nicolás Molina | En proceso |
 | Crear diseño reactivo | Agustín Estrada | En proceso |
 
