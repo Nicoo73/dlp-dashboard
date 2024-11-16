@@ -44,8 +44,11 @@ export default function Statistics() {
 
     fetchData();
   }, []);
+}
 
 
+export default function Statistics(props) {
+  console.log("a", props)
   return (
     <>
       <StatBox title="Total de libros" value={"a"} />
