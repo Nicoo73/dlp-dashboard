@@ -23,7 +23,7 @@ function formatName(name) {
 
 function DonorItem({ icon, user, booksDonated }) {
   return (
-    <div className="flex items-center justify-between py-1">
+    <div className="donors-item">
       <div className="flex items-center space-x-2">
         <span className="text-lg">{icon}</span>
         <span>{user}</span>
@@ -35,7 +35,7 @@ function DonorItem({ icon, user, booksDonated }) {
 
 export default function TopDonors({ topDonors }) {
   return (
-    <div className="bg-white p-4 rounded shadow">
+    <div className="top-donors">
       <h2 className="text-xl font-bold mb-2">Top Donadores</h2>
       <div className="space-y-1">
         {topDonors.map((e, index) => {
