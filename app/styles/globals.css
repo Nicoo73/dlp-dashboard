@@ -19,12 +19,12 @@ body {
 }
 .top-readers, .top-donors{
   text-align: center;
-  background: linear-gradient(90deg, #75a8ff 30%, #b8d9ff);
-  border: 0.4vh solid #b8d9ff;
-  border-radius: 1vw;
+  background-color: rgba(24, 24, 32, 0.4);
+  border: 0.15vwpx solid rgba(0, 0, 0, 0.3);
+  border-radius: 2vh; 
   padding: 1rem;
   margin-bottom: 1rem;
-  color: #2f4668;
+  color: #FFFFFF;
 }
 .readers-item, .donors-item {
   text-align: start;
@@ -32,10 +32,10 @@ body {
 
 .card {
   text-align: center;
-  background: linear-gradient(90deg, #75a8ff 30%, #b8d9ff);
-  border: 0.4vh solid #b8d9ff;
-  border-radius: 1vw;
-  color: #2f4668;
+  background-color: rgba(24, 24, 32, 0.4);
+  border: 0.15vwpx solid rgba(0, 0, 0, 0.3);
+  border-radius: 2vh; 
+  color: #FFFFFF;
   padding: 1rem;
   margin-bottom: 1rem;
 }
@@ -60,7 +60,7 @@ th, td {
 }
 
 th {
-  background-color: #f5f5f5;
+  background-color: #000040;
   font-weight: bold;
 }
 
