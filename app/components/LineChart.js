@@ -26,8 +26,7 @@ ChartJS.register(
 
 let prestamos = [20, 23, 20, 14, 31, 27, 11, 9, 10, 29, 7, 10];
 let reembolsos = [3, 7, 12, 5, 2, 9, 13, 9, 6, 11, 8, 16];
-let meses = [
-  "Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
 let midata = {
   labels: meses,
@@ -73,22 +72,19 @@ const misoptions = {
         const index = legendItem.datasetIndex;
         const chart = legend.chart;
 
-        // Verificar cuántos datasets están visibles
-        const visibleDatasets = chart.data.datasets.filter((_, i) =>
-          chart.isDatasetVisible(i)
-        );
+        // Verificar el estado de visibilidad de ambos datasets
+        const prestamosVisible = chart.isDatasetVisible(0);
+        const reembolsosVisible = chart.isDatasetVisible(1);
 
         if (chart.isDatasetVisible(index)) {
-          // Si se intenta desactivar un dataset
-          if (visibleDatasets.length > 1) {
-            chart.setDatasetVisibility(index, false);
-          } else {
-            // Reactivar automáticamente el otro dataset si es la última línea
-            const otherIndex = index === 0 ? 1 : 0;
-            chart.setDatasetVisibility(otherIndex, true);
+          // Si intentas desactivar una línea visible
+          if (!prestamosVisible || !reembolsosVisible) {
+            // Reactiva la otra línea si una ya está desactivada
+            chart.setDatasetVisibility(1 - index, true);
           }
+          chart.setDatasetVisibility(index, false);
         } else {
-          // Reactivar el dataset desactivado
+          // Si intentas activar una línea desactivada
           chart.setDatasetVisibility(index, true);
         }
 
