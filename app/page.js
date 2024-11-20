@@ -214,6 +214,7 @@ export default async function DashboardPage() {
     topDonors,
   ] = await getData();
 
+  
   return (
     <div className="dashboard grid grid-cols-4 gap-4">
       <div className="col-span-3">
@@ -222,6 +223,7 @@ export default async function DashboardPage() {
       </div>
       <div className="col-span-1">
         <Statistics
+          totalPendingReturns={pendingBooks.length}
           totalBooks={totalBooks}
           totalBorrowedBooks={totalBorrowedBooks}
           totalDonors={totalDonors}

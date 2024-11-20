@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 
+
 function AtrasoLibro({ fechaLimite }) {
   const [diasAtraso, setDiasAtraso] = useState(0);
 
@@ -25,16 +26,28 @@ function AtrasoLibro({ fechaLimite }) {
   }, [fechaLimite]);
 
   return (
-    <td className="delay">
+    <td className={`delay ${diasAtraso > 0 ? 'atraso' : 'en-tiempo'}`}>
       {diasAtraso > 0 ? `${diasAtraso} día(s) de atraso` : "En tiempo"}
     </td>
   );
 }
 
 export default function PendingReturns({ pendingBooks }) {
-  return (
+
+  // Calcular los días de atraso para cada libro y añadirlo al objeto del libro
+  const librosConAtraso = pendingBooks.map((book) => {
+    const fechaLimiteDate = new Date(book.grilla);
+    const fechaActual = new Date();
+    const diferencia = fechaActual - fechaLimiteDate;
+    const diasDeAtraso = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    return { ...book, diasDeAtraso };
+  });
+
+  // Ordenar los libros por días de atraso de mayor a menor
+  const librosOrdenados = librosConAtraso.sort((a, b) => b.diasDeAtraso - a.diasDeAtraso);
+  
+return (
     <div className="card">
-      <h2>Libros pendientes de devolución {pendingBooks.length}</h2>
       <div style={{ maxHeight: "400px", overflowY: "auto" }}>
         <table>
           <thead>
@@ -45,7 +58,7 @@ export default function PendingReturns({ pendingBooks }) {
             </tr>
           </thead>
           <tbody>
-            {pendingBooks.map((book) => (
+            {librosOrdenados.map((book) => (
               <tr key={book.id}>
                 <td>{book.title}</td>
                 <AtrasoLibro fechaLimite={book.grilla} />

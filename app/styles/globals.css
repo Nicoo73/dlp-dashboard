@@ -103,8 +103,12 @@ th {
   padding: 0.25rem 0;
 }
 
-.delay {
-  color: red;
+.delay.atraso {
+  color: red; 
+}
+
+.delay.en-tiempo {
+  color: green; 
 }
 
 .nav-bar {

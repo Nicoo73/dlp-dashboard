@@ -9,9 +9,10 @@ function StatBox({ title, value }) {
   );
 }
 
-export default function Statistics( { totalBooks, totalBorrowedBooks, totalDonors } ) {
+export default function Statistics({ totalBooks, totalBorrowedBooks, totalDonors, totalPendingReturns }) {
   return (
     <>
+      <StatBox title="Libros pendientes" value={totalPendingReturns} />
       <StatBox title="Total de libros" value={totalBooks} />
       <StatBox title="Libros prestados" value={totalBorrowedBooks} />
       <StatBox title="Total de donantes" value={totalDonors} />
