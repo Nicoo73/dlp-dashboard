@@ -21,7 +21,7 @@ export default function MostRequestedBooks({ mostRequestedBooks }) {
   return (
     <div className="card">
       <h2>Libros más pedidos</h2>
-      <div className="space-y-2 max-h-64 overflow-y-auto">
+      <div style={{ maxHeight: "450px", overflowY: "auto" }}>
         {
           // Usamos un for...in para iterar sobre el array de libros
           mostRequestedBooks.map((e) => (
