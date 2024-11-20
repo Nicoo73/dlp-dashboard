@@ -48,12 +48,7 @@ export default function PendingReturns({ pendingBooks }) {
   
 return (
     <div className="card">
-<<<<<<< HEAD
       <div style={{ maxHeight: "400px", overflowY: "auto" }}>
-=======
-      <h2>Libros pendientes de devolución {pendingBooks.length}</h2>
-      <div style={{ maxHeight: "250px", overflowY: "auto" }}>
->>>>>>> fa52e603b4c41b1cccf1777c55f262be633b22e9
         <table>
           <thead>
             <tr>
