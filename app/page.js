@@ -32,13 +32,26 @@ async function getData() {
     ];
 
     const currentDate = new Date();
-    const pendingBooks = res_borrowed.prestamos
+
+    const pendingBooks = await Promise.all(res_borrowed.prestamos
       .filter((e) => new Date(e.fecha_limite) < currentDate)
-      .map((e) => ({
-        id: e.id_libro,
-        grilla: e.fecha_limite,
-        user: e.usuario,
-      }));
+      .map(async (e) => {
+        // Obtener el libro correspondiente usando el id
+        const res_book = await fetch(`https://dlp-api.vercel.app/libros?id=${e.id_libro}`);
+        const bookData = await res_book.json();
+        const book = bookData.libros ? bookData.libros[0] : null;
+    
+        return book ? {
+          id: book.id,
+          title: book.titulo, // Asegúrate de que la propiedad se llame 'title'
+          grilla: e.fecha_limite,
+          user: e.usuario,
+        } : null;
+      })
+    );
+    
+    // Filtrar los libros que no se encontraron
+    const filteredPendingBooks = pendingBooks.filter(book => book !== null);
 
     const mostRequestedBooks = await getMostRequestedBooks(
       res_borrowed,
