@@ -49,6 +49,7 @@ export default function PendingReturns({ pendingBooks }) {
 return (
     <div className="card">
       <div style={{ maxHeight: "250px", overflowY: "auto" }}>
+      <h2 className="text-lg font-bold mb-4">Libros pendiendes de devolucion</h2>
         <table>
           <thead>
             <tr>
