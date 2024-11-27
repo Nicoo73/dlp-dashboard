@@ -9,12 +9,12 @@ import LinesChart from "./components/LineChart";
 async function getData() {
   try {
     const response_books = await fetch("https://dlp-api.vercel.app/libros", {
-      next: { revalidate: 60 }, // Revalida cada 60 segundos
+      next: { revalidate: 300 }, // Revalida cada 300 segundos
     });
 
     const response_borrowed = await fetch(
       "https://dlp-api.vercel.app/prestamos",
-      { next: { revalidate: 60 } },
+      { next: { revalidate: 300 } },
     );
 
     if (!response_books.ok) {
@@ -43,7 +43,7 @@ async function getData() {
     
         return book ? {
           id: book.id,
-          title: book.titulo, // Asegúrate de que la propiedad se llame 'title'
+          title: book.titulo,
           grilla: e.fecha_limite,
           user: e.usuario,
         } : null;
