@@ -9,12 +9,12 @@ import LinesChart from "./components/LineChart";
 async function getData() {
   try {
     const response_books = await fetch("https://dlp-api.vercel.app/libros", {
-      next: { revalidate: 60 }, // Revalida cada 60 segundos
+      next: { revalidate: 120 }, // Revalida cada 60 segundos
     });
 
     const response_borrowed = await fetch(
       "https://dlp-api.vercel.app/prestamos",
-      { next: { revalidate: 60 } },
+      { next: { revalidate: 120 } },
     );
 
     if (!response_books.ok) {
