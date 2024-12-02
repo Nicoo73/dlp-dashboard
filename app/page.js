@@ -7,20 +7,19 @@ import TopDonors from "./components/TopDonors";
 import LinesChart from "./components/LineChart";
 
 async function getData() {
-  console.log("Iniciando la obtencion de datos");
+  console.log("Iniciando la obtención de datos");
   try {
     console.log("Obteniendo datos de libros");
     const response_books = await fetch("https://dlp-api.vercel.app/libros", {
-      next: { revalidate: 120 }, // Revalida cada 120 segundos
+      next: { revalidate: 120 },
     });
 
-    console.log("Datos de libros obtenidos");
     if (!response_books.ok) {
       throw new Error("Error al obtener los datos de libros");
     }
 
-    const res_books = await response_books.json();
-    console.log("Datos de libros procesados: ", res_books);
+    const res_books = await response_books.clone().json(); // Clonando la respuesta
+    console.log("Datos de libros procesados:", res_books);
 
     console.log("Obteniendo datos de préstamos");
     const response_borrowed = await fetch(
@@ -28,19 +27,17 @@ async function getData() {
       { next: { revalidate: 120 } },
     );
 
-    console.log("Datos de préstamos obtenidos");
     if (!response_borrowed.ok) {
       throw new Error("Error al obtener los datos de préstamos");
     }
 
-    const res_borrowed = await response_borrowed.json();
-    console.log("Datos de préstamos procesados: ", res_borrowed);
+    const res_borrowed = await response_borrowed.clone().json(); // Clonando la respuesta
+    console.log("Datos de préstamos procesados:", res_borrowed);
 
     const uniqueDonors = [
       ...new Set(res_books.libros.map((book) => book.donante)),
     ];
-
-    console.log("Donantes únicos: ", uniqueDonors);
+    console.log("Donantes únicos:", uniqueDonors);
 
     const currentDate = new Date();
 
@@ -48,31 +45,33 @@ async function getData() {
     const pendingBooks = await Promise.all(res_borrowed.prestamos
       .filter((e) => new Date(e.fecha_limite) < currentDate)
       .map(async (e) => {
-        // Obtener el libro correspondiente usando el id
         const res_book = await fetch(`https://dlp-api.vercel.app/libros?id=${e.id_libro}`);
+        if (!res_book.ok) {
+          console.error("Error al obtener el libro:", e.id_libro);
+          return null;
+        }
         const bookData = await res_book.json();
         const book = bookData.libros ? bookData.libros[0] : null;
-    
+
         return book ? {
           id: book.id,
-          title: book.titulo, // Asegúrate de que la propiedad se llame 'title'
+          title: book.titulo,
           grilla: e.fecha_limite,
           user: e.usuario,
         } : null;
       })
     );
-    
-    // Filtrar los libros que no se encontraron
-    const filteredPendingBooks = pendingBooks.filter(book => book !== null);
-    console.log("Libros pendientes obtenidos: ", pendingBooks);
 
-    console.log("Obteniendo libros mas solicitados");
+    const filteredPendingBooks = pendingBooks.filter(book => book !== null);
+    console.log("Libros pendientes obtenidos:", filteredPendingBooks);
+
+    console.log("Obteniendo los libros más solicitados");
     const mostRequestedBooks = await getMostRequestedBooks(
       res_borrowed,
       currentDate,
       10,
     );
-    console.log("Libros mas solicitados: ", mostRequestedBooks);
+    console.log("Libros más solicitados:", mostRequestedBooks);
 
     console.log("Obteniendo los mejores lectores");
     const topReaders = await getTopNReaders(res_borrowed, currentDate, 3);
@@ -86,7 +85,7 @@ async function getData() {
       totalBooks: res_books.libros.length,
       totalBorrowedBooks: res_borrowed.prestamos.length,
       totalDonors: uniqueDonors.length,
-      pendingBooks,
+      pendingBooks: filteredPendingBooks,
       mostRequestedBooks,
       topReaders,
       topDonors,
@@ -96,7 +95,7 @@ async function getData() {
       totalBooks: res_books.libros.length,
       totalBorrowedBooks: res_borrowed.prestamos.length,
       totalDonors: uniqueDonors.length,
-      pendingBooks,
+      pendingBooks: filteredPendingBooks,
       mostRequestedBooks,
       topReaders,
       topDonors,
@@ -104,7 +103,7 @@ async function getData() {
   } catch (e) {
     console.log("Entrando al bloque catch");
     console.error("Error al obtener los datos:", e);
-    console.log("Detalles del error: ", e.message);
+    console.log("Detalles del error:", e.message);
     return { error: "Error al cargar los datos" };
   }
 }
