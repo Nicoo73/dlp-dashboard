@@ -7,32 +7,44 @@ import TopDonors from "./components/TopDonors";
 import LinesChart from "./components/LineChart";
 
 async function getData() {
+  console.log("Iniciando la obtencion de datos");
   try {
+    console.log("Obteniendo datos de libros");
     const response_books = await fetch("https://dlp-api.vercel.app/libros", {
-      next: { revalidate: 120 }, // Revalida cada 60 segundos
+      next: { revalidate: 120 }, // Revalida cada 120 segundos
     });
 
+    console.log("Datos de libros obtenidos");
+    if (!response_books.ok) {
+      throw new Error("Error al obtener los datos de libros");
+    }
+
+    const res_books = await response_books.json();
+    console.log("Datos de libros procesados: ", res_books);
+
+    console.log("Obteniendo datos de préstamos");
     const response_borrowed = await fetch(
       "https://dlp-api.vercel.app/prestamos",
       { next: { revalidate: 120 } },
     );
 
-    if (!response_books.ok) {
-      throw new Error("Error al obtener los datos de libros");
-    }
+    console.log("Datos de préstamos obtenidos");
     if (!response_borrowed.ok) {
       throw new Error("Error al obtener los datos de préstamos");
     }
 
-    const res_books = await response_books.json();
     const res_borrowed = await response_borrowed.json();
+    console.log("Datos de préstamos procesados: ", res_borrowed);
 
     const uniqueDonors = [
       ...new Set(res_books.libros.map((book) => book.donante)),
     ];
 
+    console.log("Donantes únicos: ", uniqueDonors);
+
     const currentDate = new Date();
 
+    console.log("Filtrando libros pendientes");
     const pendingBooks = await Promise.all(res_borrowed.prestamos
       .filter((e) => new Date(e.fecha_limite) < currentDate)
       .map(async (e) => {
@@ -52,15 +64,33 @@ async function getData() {
     
     // Filtrar los libros que no se encontraron
     const filteredPendingBooks = pendingBooks.filter(book => book !== null);
+    console.log("Libros pendientes obtenidos: ", pendingBooks);
 
+    console.log("Obteniendo libros mas solicitados");
     const mostRequestedBooks = await getMostRequestedBooks(
       res_borrowed,
       currentDate,
       10,
     );
+    console.log("Libros mas solicitados: ", mostRequestedBooks);
 
+    console.log("Obteniendo los mejores lectores");
     const topReaders = await getTopNReaders(res_borrowed, currentDate, 3);
+    console.log("Mejores lectores:", topReaders);
+
+    console.log("Obteniendo los mejores donantes");
     const topDonors = await getTopDonors(res_books, 3);
+    console.log("Mejores donantes:", topDonors);
+
+    console.log("Datos finales a retornar:", {
+      totalBooks: res_books.libros.length,
+      totalBorrowedBooks: res_borrowed.prestamos.length,
+      totalDonors: uniqueDonors.length,
+      pendingBooks,
+      mostRequestedBooks,
+      topReaders,
+      topDonors,
+    });
 
     return {
       totalBooks: res_books.libros.length,
@@ -72,6 +102,7 @@ async function getData() {
       topDonors,
     };
   } catch (e) {
+    console.log("Entrando al bloque catch");
     console.error("Error al obtener los datos:", e);
     console.log("Detalles del error: ", e.message);
     return { error: "Error al cargar los datos" };
