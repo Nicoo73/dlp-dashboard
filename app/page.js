@@ -73,6 +73,7 @@ async function getData() {
     };
   } catch (e) {
     console.error("Error al obtener los datos:", e);
+    console.log("Detalles del error: ", e.message);
     return { error: "Error al cargar los datos" };
   }
 }
