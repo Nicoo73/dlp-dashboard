@@ -25,7 +25,7 @@ ChartJS.register(
 );
 
 let prestamos = [20, 23, 20, 14, 31, 27, 11, 9, 10, 29, 7, 10];
-let reembolsos = [3, 7, 12, 5, 2, 9, 13, 9, 6, 11, 8, 16];
+let donaciones = [3, 7, 12, 5, 2, 9, 13, 9, 6, 11, 8, 16];
 let meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
 let midata = {
@@ -43,8 +43,8 @@ let midata = {
       pointBackgroundColor: "rgb(255, 255, 255)",
     },
     {
-      label: "Reembolsos",
-      data: reembolsos,
+      label: "Donaciones",
+      data: donaciones,
       tension: 0,
       fill: false,
       borderColor: "rgb(184,217,255)",
@@ -74,11 +74,11 @@ const misoptions = {
 
         // Verificar el estado de visibilidad de ambos datasets
         const prestamosVisible = chart.isDatasetVisible(0);
-        const reembolsosVisible = chart.isDatasetVisible(1);
+        const donacionesVisible = chart.isDatasetVisible(1);
 
         if (chart.isDatasetVisible(index)) {
           // Si intentas desactivar una línea visible
-          if (!prestamosVisible || !reembolsosVisible) {
+          if (!prestamosVisible || !donacionesVisible) {
             // Reactiva la otra línea si una ya está desactivada
             chart.setDatasetVisibility(1 - index, true);
           }
